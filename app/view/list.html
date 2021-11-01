@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/index.css">
+</head>
+
+<body>
+
+    <h2>新闻列表数据</h2>
+
+    <ul>
+        <%for(var i=0;i<list.length;i++){%>
+            <li>
+                <a href="/newscontent?aid=<%=list[i].aid%>"> <%=list[i].title%>  </a>
+                <span>---<%=list[i].dateline%></span>
+            </li>
+        <%}%>
+    </ul>
+    <img src="/public/img/Galaxy.ico" alt="">
+    
+    <!-- <form action="/add?_csrf=<%=csrf%>" method="POST"> -->
+    <form action="/add" method="POST">
+        <input type="hidden" name="_csrf" value="<%=csrf%>">
+        用户名: <input type="text" name="username" /> <br><br>  
+  
+        密　码: <input type="password" name="password" type="password" />  <br><br>
+  
+        <button type="submit">提交</button>
+    </form>
+
+</body>
+
+</html>
